@@ -1,16 +1,16 @@
 #!/bin/bash
 
 SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
-function installEssentials() {
-  
-  brew install build-essential procps wget file git cmake unzip python3-pip python3-venv xclip dotnet-sdk-8.0 -y
-}
 
 function installBrew() {
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
   (echo; echo 'eval "$(/opt/homebrew/bin/brew shellenv)"') >> "$HOME/.profile"
   eval "$(/opt/homebrew/bin/brew shellenv)"
   source "$HOME/.profile"
+}
+
+function installEssentials() {
+  brew install gcc wget file git cmake unzip python3 xclip dotnet@8
 }
 
 function installPacker() {
@@ -51,8 +51,8 @@ function installNvim() {
   popd
 }
 
-#installEssentials
 #installBrew
+#installEssentials
 #installPacker
 #installOtherBinaries
 #installNvim
