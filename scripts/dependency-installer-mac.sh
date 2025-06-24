@@ -51,11 +51,11 @@ function installNvim() {
   popd
 }
 
-#installBrew
-#installEssentials
-#installPacker
-#installOtherBinaries
-#installNvim
+installBrew
+installEssentials
+installPacker
+installOtherBinaries
+installNvim
 
-#bash "$SCRIPT_DIR/noobvim-installer.sh"
+bash "$SCRIPT_DIR/noobvim-installer.sh"
 
