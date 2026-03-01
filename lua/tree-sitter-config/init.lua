@@ -1,15 +1,9 @@
-require('nvim-treesitter.configs').setup {
-  ensure_installed = { "bash", "css", "dockerfile", "go", "graphql", "hcl", "html", "http", "java", "javascript", "json", "lua", "markdown", "markdown_inline", "python", "scss", "sql", "typescript", "yaml", "c_sharp", "graphql", "svelte", "toml", "vue" },
-  sync_install = false,
-  highlight = {
-    enable = true,
-    disable = {},
-    additional_vim_regex_highlighting = false,
-  },
-  playground = {
-    enable = true
-  },
-  autotag = {
-    enable = true
-  }
-}
+-- nvim-treesitter v1.0: complete incompatible rewrite of the plugin.
+-- require('nvim-treesitter.configs') no longer exists.
+-- Highlighting is automatic once a parser is installed (:TSInstall / :TSUpdate).
+-- The installer runs :TSUpdateSync to pre-install parsers.
+
+require('nvim-treesitter').setup()
+
+-- nvim-ts-autotag is now standalone — no longer wired through nvim-treesitter.
+require('nvim-ts-autotag').setup()

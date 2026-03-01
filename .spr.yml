@@ -1,0 +1,12 @@
+githubRepoOwner: adrian-fitsios
+githubRepoName: NoobVim
+githubHost: github.com
+githubRemote: origin
+githubBranch: main
+requireChecks: true
+requireApproval: true
+mergeMethod: squash
+mergeQueue: false
+forceFetchTags: false
+showPrTitlesInStack: false
+branchPushIndividually: false

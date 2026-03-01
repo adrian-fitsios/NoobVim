@@ -25,7 +25,7 @@ require('dashboard').setup({
     },
     center = {
       {
-        icon = "   ",
+        icon = "   ",
         icon_hl = 'Title',
         desc = "Recently opened files",
         desc_hl = 'String',
@@ -34,7 +34,7 @@ require('dashboard').setup({
         action = "Telescope oldfiles",
       },
       {
-        icon = '   ',
+        icon = '   ',
         icon_hl = 'Title',
         desc = 'Open a git project',
         desc_hl = 'String',
@@ -43,7 +43,7 @@ require('dashboard').setup({
         action = 'Telescope repo list'
       },
       {
-        icon = '   ',
+        icon = '   ',
         icon_hl = 'Title',
         desc = 'Open a file',
         desc_hl = 'String',
@@ -53,7 +53,7 @@ require('dashboard').setup({
         action = 'Telescope find_files find_command=rg,--hidden,--files'
       },
       {
-        icon = '   ',
+        icon = '   ',
         icon_hl = 'Title',
         desc = 'Open file tree',
         desc_hl = 'String',
@@ -63,7 +63,7 @@ require('dashboard').setup({
         action = 'NvimTreeOpen'
       },
       {
-        icon = '   ',
+        icon = '   ',
         icon_hl = 'Title',
         desc = 'Refresh your memory (see shortcuts)',
         desc_hl = 'String',
@@ -73,7 +73,7 @@ require('dashboard').setup({
         action = 'WhichKey'
       },
       {
-        icon = '   ',
+        icon = '   ',
         icon_hl = 'Title',
         desc = 'Find a word anywhere',
         desc_hl = 'String',
@@ -83,16 +83,16 @@ require('dashboard').setup({
         action = 'Telescope live_grep'
       },
       {
-        icon = '   ',
+        icon = '   ',
         icon_hl = 'Title',
         desc = 'Update packages',
         desc_hl = 'String',
         key = 'u',
         key_hl = 'Number',
-        action = 'PackerSync'
+        action = 'Lazy sync'
       },
       {
-        icon = '   ',
+        icon = '   ',
         icon_hl = 'Title',
         desc = 'Exit',
         desc_hl = 'String',
@@ -102,6 +102,6 @@ require('dashboard').setup({
         action = 'qall'
       }
     },
-    footer = { 'Nvim config for beginners' } --your footer
+    footer = { 'Nvim config for beginners' }
   }
 })

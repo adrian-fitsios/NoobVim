@@ -15,18 +15,9 @@ function M.merge(...)
 end
 
 function M.list_dir(directory)
-  local i, t, popen = 0, {}, io.popen
-  local pfile = popen('ls -a "' .. directory .. '"')
-  if (pfile ~= nil) then
-    for filename in pfile:lines() do
-      if (filename ~= "." and filename ~= "..") then
-        i = i + 1
-        t[i] = filename
-      end
-    end
-    pfile:close()
-  end
-  return t
+  local ok, entries = pcall(vim.fn.readdir, directory)
+  if not ok then return {} end
+  return entries
 end
 
 function M.has_value(tab, val)
