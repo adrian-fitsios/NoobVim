@@ -34,6 +34,17 @@ wk.setup({
 local telescope_api = require('telescope.builtin')
 local gs = require('gitsigns')
 
+function _G.close_buffer_smart()
+  local buf = vim.api.nvim_get_current_buf()
+  local listed = vim.fn.getbufinfo({ buflisted = 1 })
+  if #listed > 1 then
+    vim.cmd('BufferLineCycleNext')
+    vim.cmd('bd ' .. buf)
+  else
+    vim.cmd('bd')
+  end
+end
+
 -- ── Leader mappings ───────────────────────────────────────────────────────────
 wk.add({
   -- Groups
@@ -171,7 +182,7 @@ wk.add({
 wk.add({
   { '<C-s>', '<cmd>w<cr>', desc = 'Save', mode = { 'n', 'i', 'v' } },
   -- <C-w> closes buffer; window navigation uses <C-h/j/k/l> instead
-  { '<C-w>', '<cmd>bd<cr>', desc = 'Close buffer', mode = { 'n', 'i', 'v' } },
+  { '<C-w>', '<cmd>lua close_buffer_smart()<cr>', desc = 'Close buffer', mode = { 'n', 'i', 'v' } },
   { '<C-S-v>', '<cmd>Telescope neoclip<cr>', desc = 'Clipboard history', mode = { 'n', 'i', 'v' } },
   { '<A-p>', '<cmd>Glow %<cr>', desc = 'Preview markdown', mode = { 'n', 'i', 'v' } },
 })
