@@ -20,6 +20,15 @@ return {
     end,
   },
 
+  -- Find & replace in files
+  {
+    'MagicDuck/grug-far.nvim',
+    enabled = features.enabled('grug_far'),
+    config = function()
+      require('grug-far-config')
+    end,
+  },
+
   -- File explorer
   {
     'nvim-tree/nvim-tree.lua',

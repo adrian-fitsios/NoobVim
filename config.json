@@ -48,6 +48,7 @@
     "todo_comments": true,
     "codecompanion": true,
     "direnv": true,
-    "neoconf": true
+    "neoconf": true,
+    "grug_far": true
   }
 }

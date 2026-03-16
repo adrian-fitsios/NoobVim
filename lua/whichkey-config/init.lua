@@ -33,6 +33,7 @@ wk.setup({
 
 local telescope_api = require('telescope.builtin')
 local gs = require('gitsigns')
+local grug_far = require('grug-far-config')
 
 function _G.close_buffer_smart()
   local buf = vim.api.nvim_get_current_buf()
@@ -89,12 +90,20 @@ wk.add({
   { '<leader>tt', '<cmd>Trouble diagnostics toggle<cr>', desc = 'Toggle diagnostics' },
   { '<leader>tT', '<cmd>Trouble diagnostics toggle filter.buf=0<cr>', desc = 'Buffer diagnostics' },
   { '<leader>ts', '<cmd>Trouble symbols toggle focus=false<cr>', desc = 'Toggle symbols' },
+
+  -- Find & replace
+  { '<leader>r',  group = 'Replace' },
+  { '<leader>rr', function() grug_far.open() end,             desc = 'Find & replace in project' },
+  { '<leader>rw', function() grug_far.open_with_word() end,   desc = 'Replace word under cursor' },
+  { '<leader>rh', function() grug_far.toggle_hidden() end,    desc = 'Toggle hidden files' },
 })
 
 -- Visual mode leader
 wk.add({
-  { '<leader>c', group = 'Code', mode = 'v' },
+  { '<leader>c',  group = 'Code',    mode = 'v' },
   { '<leader>ca', '<esc><cmd>Lspsaga code_action<cr>', desc = 'Code actions', mode = 'v' },
+  { '<leader>r',  group = 'Replace', mode = 'v' },
+  { '<leader>rr', function() grug_far.open_with_selection() end, desc = 'Find & replace selection', mode = 'v' },
 })
 
 -- ── Normal mode (no leader) ───────────────────────────────────────────────────
