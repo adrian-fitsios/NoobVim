@@ -1,6 +1,15 @@
 -- Neovim 0.11+ LSP config: use vim.lsp.config / vim.lsp.enable instead of lspconfig.setup()
 -- nvim-lspconfig still provides the per-server config files; we just enable/customise them.
 
+-- Suppress terraformls noise about diffview:// virtual buffer URIs
+local _orig_show_message = vim.lsp.handlers['window/showMessage']
+vim.lsp.handlers['window/showMessage'] = function(err, result, ctx, config)
+  if result and result.message and result.message:match('diffview://') then
+    return
+  end
+  return _orig_show_message(err, result, ctx, config)
+end
+
 -- conform.nvim handles format-on-save; disable LSP formatting to avoid double-format.
 local on_attach = function(client, _)
   client.server_capabilities.documentFormattingProvider = false
