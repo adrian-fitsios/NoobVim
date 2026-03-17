@@ -1,25 +1,33 @@
-require('packer-config')
-require('telescope-config')
-require('tree-sitter-config')
-require('lsp-config')
-require('color-schemes')
-require('nvim-tree-config')
-require('nvim-cmp-config')
-require('toggle-term-config')
-require('gitsigns-config')
-require('neoclip-config')
-require('barbar-config')
-require('lspsaga-config')
-require('luasnip-config')
-require('autopairs-config')
-require('whichkey-config')
-require('dap-config')
-require('diffview-config')
-require('file-skeleton-config')
+-- Bootstrap lazy.nvim
+local lazypath = vim.fn.stdpath('data') .. '/lazy/lazy.nvim'
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
+    'git', 'clone', '--filter=blob:none',
+    'https://github.com/folke/lazy.nvim.git',
+    '--branch=stable',
+    lazypath,
+  })
+end
+vim.opt.rtp:prepend(lazypath)
+
+-- Settings must be loaded first so leader key is set before lazy processes keymaps
 require('settings')
 
-vim.api.nvim_set_var('noobvim', {
-  tree = {
-    was_shown = false
-  }
+-- Setup lazy.nvim — scans lua/plugins/*.lua for plugin specs
+require('lazy').setup('plugins', {
+  checker = { enabled = false },
+  change_detection = { enabled = true, notify = false },
+  performance = {
+    rtp = {
+      disabled_plugins = {
+        'gzip', 'tarPlugin', 'tohtml', 'tutor', 'zipPlugin',
+      },
+    },
+  },
+  ui = {
+    border = 'rounded',
+  },
 })
+
+-- Global state used by nvim-tree auto-open logic
+vim.g.noobvim_tree_was_shown = false

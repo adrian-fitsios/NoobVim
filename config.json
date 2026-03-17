@@ -1,0 +1,55 @@
+{
+  "features": {
+    "colorscheme": true,
+    "lualine": true,
+    "bufferline": true,
+    "dashboard": true,
+    "sessions": true,
+    "file_skeletons": true,
+    "telescope": true,
+    "nvim_tree": true,
+    "lsp": {
+      "enabled": true,
+      "servers": {
+        "lua_ls": true,
+        "bashls": true,
+        "ts_ls": true,
+        "marksman": true,
+        "dockerls": true,
+        "terraformls": true,
+        "jsonls": true,
+        "omnisharp": true,
+        "pylsp": true,
+        "html": true,
+        "cssls": true,
+        "svelte": true,
+        "emmet_ls": true,
+        "yamlls": true
+      }
+    },
+    "lspsaga": true,
+    "conform": true,
+    "completion": true,
+    "treesitter": true,
+    "dap": {
+      "enabled": true,
+      "python": true,
+      "javascript": true
+    },
+    "gitsigns": true,
+    "diffview": true,
+    "toggleterm": true,
+    "code_runner": true,
+    "which_key": true,
+    "neoclip": true,
+    "glow": true,
+    "comment": true,
+    "trouble": true,
+    "todo_comments": true,
+    "codecompanion": true,
+    "direnv": true,
+    "neoconf": true,
+    "grug_far": true,
+    "git_conflict": true
+  }
+}

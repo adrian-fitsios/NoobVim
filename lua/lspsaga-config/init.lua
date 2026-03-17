@@ -22,8 +22,6 @@ require('lspsaga').setup({
     show_code_action = true,
     show_source = true,
     jump_num_shortcut = true,
-    custom_fix = nil,
-    custom_msg = nil,
     keys = {
       exec_action = "<cr>",
       quit = "<esc>",
@@ -46,7 +44,7 @@ require('lspsaga').setup({
   },
   symbol_in_winbar = {
     enable = true,
-    separator = "  ",
+    separator = "  ",
     hide_keyword = true,
     show_file = true,
     folder_level = 2,
@@ -55,8 +53,8 @@ require('lspsaga').setup({
   },
 })
 
+-- Show diagnostics on cursor hold (fixed: bufnr was undefined in original)
 vim.api.nvim_create_autocmd("CursorHold", {
-  buffer = bufnr,
   callback = function()
     local opts = {
       focusable = false,

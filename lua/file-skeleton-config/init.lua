@@ -14,7 +14,7 @@ local function get_skeleton_file_contents(extension)
   if (skeleton_file ~= nil) then
     return skeleton_file:read("*all")
   end
-  print("[file-skeleton-config] there was a problem loading skeleton file contents for '" .. extension "' extension.")
+  print("[file-skeleton-config] there was a problem loading skeleton file contents for '" .. extension .. "' extension.")
   return ""
 end
 
