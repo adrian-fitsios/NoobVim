@@ -74,6 +74,12 @@ wk.add({
   -- Code
   { '<leader>ca', '<cmd>Lspsaga code_action<cr>', desc = 'Open code actions', mode = 'n' },
 
+  -- Conflict resolution (git-conflict.nvim)
+  { '<leader>co', '<cmd>GitConflictChooseOurs<cr>',   desc = 'Conflict: choose ours' },
+  { '<leader>ct', '<cmd>GitConflictChooseTheirs<cr>', desc = 'Conflict: choose theirs' },
+  { '<leader>cb', '<cmd>GitConflictChooseBoth<cr>',   desc = 'Conflict: choose both' },
+  { '<leader>c0', '<cmd>GitConflictChooseNone<cr>',   desc = 'Conflict: reject both' },
+
   -- Show
   { '<leader>sd', '<cmd>Lspsaga show_line_diagnostics<cr>', desc = 'Show line diagnostics' },
 
@@ -133,6 +139,8 @@ wk.add({
   },
   { '[d', function() require('lspsaga.diagnostic'):goto_prev() end, desc = 'Previous diagnostic' },
   { ']d', function() require('lspsaga.diagnostic'):goto_next() end, desc = 'Next diagnostic' },
+  { '[x', '<cmd>GitConflictPrevConflict<cr>', desc = 'Previous conflict' },
+  { ']x', '<cmd>GitConflictNextConflict<cr>', desc = 'Next conflict' },
 
   -- Run / Debug (F-keys)
   -- F5 = run code, S-F5 = start/continue debugger

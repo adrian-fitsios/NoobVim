@@ -49,6 +49,7 @@
     "codecompanion": true,
     "direnv": true,
     "neoconf": true,
-    "grug_far": true
+    "grug_far": true,
+    "git_conflict": true
   }
 }
