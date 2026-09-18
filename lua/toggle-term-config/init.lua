@@ -6,6 +6,7 @@ toggleterm.setup({
   start_in_insert = true,
   direction = 'horizontal',
   size = 15,
+  shell = vim.o.shell .. ' --login',
 })
 
 -- Terminal 1 — bottom, full width
